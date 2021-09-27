@@ -1,9 +1,10 @@
 <script>
 	export let poke;
+	import { fade, fly } from 'svelte/transition';
 </script>
 
 <!-- <p>{poke.name}</p> -->
-<a href={`/poke/${poke.id}`} class="poke-ele">
+<a in:fly={{ y: 100, duration: 2000 }} out:fade href={`/pokemon/${poke.id}`} class="poke-ele">
 	<img src={poke.image} alt={poke.name} />
 	<h2>{poke.id}. {poke.name}</h2>
 </a>

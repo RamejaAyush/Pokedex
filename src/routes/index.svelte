@@ -11,7 +11,7 @@
 		if (search) {
 			// change filtered pokemon
 			filterPoke = $pokemon.filter((poke) =>
-				poke.name.toLowerCase().includes(search.toLowerCase())
+				poke.name.toLowerCase().includes(search.toLocaleLowerCase)
 			);
 		} else {
 			filterPoke = [...$pokemon];
