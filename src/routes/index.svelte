@@ -1,6 +1,7 @@
 <script>
 	import { pokemon } from '../stores/pokestore';
 	import Poke from '../components/poke.svelte';
+	import { fade, fly } from 'svelte/transition';
 
 	let search = '';
 	let filterPoke = [];
@@ -11,7 +12,7 @@
 		if (search) {
 			// change filtered pokemon
 			filterPoke = $pokemon.filter((poke) =>
-				poke.name.toLowerCase().includes(search.toLocaleLowerCase)
+				poke.name.toLowerCase().includes(search.toLowerCase())
 			);
 		} else {
 			filterPoke = [...$pokemon];
@@ -23,10 +24,12 @@
 	<title>Pokidex | Home</title>
 </svelte:head>
 
-<h1>Svelte Kit Pokedex</h1>
+<div in:fly={{ y: 100, duration: 2000 }} out:fade>
+	<h1>Svelte Kit Pokedex</h1>
 
-<div class="textSearch">
-	<input type="text" name="search" id="search" placeholder="Search Pokemon" bind:value={search} />
+	<div class="textSearch">
+		<input type="text" name="search" id="search" placeholder="Search Pokemon" bind:value={search} />
+	</div>
 </div>
 
 <div class="pokeCont">
@@ -47,7 +50,6 @@
 		display: flex;
 		flex-wrap: wrap;
 		gap: 55px;
-		align-items: center;
 		justify-content: center;
 		margin: 0 auto;
 	}

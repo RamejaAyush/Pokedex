@@ -18,11 +18,41 @@
 	<title>Pokidex | {poki.name}</title>
 </svelte:head>
 
-<div in:fly={{ y: 100, duration: 2000 }} out:fade>
+<div class="indPokeman" in:fly={{ y: 100, duration: 1000 }} out:fade>
+	<img class="card-image" src={poki.sprites['front_default']} alt={poki.name} />
 	<h1>{poki.name}</h1>
 	<p>
-		Type: <strong>{type}</strong> | Height: <strong>{poki.height}</strong>
-		| Weight: <strong>{poki.weight}</strong>
+		Type: {type}
 	</p>
-	<img class="card-image" src={poki.sprites['front_default']} alt={poki.name} />
+	<p>
+		Height: {poki.height}
+	</p>
+	<p>
+		Weight: {poki.weight}
+	</p>
 </div>
+
+<style>
+	.indPokeman {
+		width: 100%;
+		height: 90vh;
+		text-align: center;
+	}
+
+	.indPokeman img {
+		width: 45vw;
+		height: 45vh;
+		object-fit: cover;
+		margin: 1rem;
+	}
+	.indPokeman h1 {
+		font-size: 55px;
+		text-transform: uppercase;
+	}
+
+	.indPokeman p {
+		margin: 1rem;
+		text-transform: uppercase;
+		font-weight: 700;
+	}
+</style>
