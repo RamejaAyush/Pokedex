@@ -14,9 +14,10 @@
 	}
 	nav a {
 		text-decoration: none;
-		color: black;
+		color: #e4e4e4;
 	}
 	nav a:hover {
 		text-decoration: underline;
+		color: white;
 	}
 </style>
