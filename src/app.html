@@ -6,7 +6,22 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		%svelte.head%
 	</head>
-	<link rel="stylesheet" href="../static/style.css" />
+	<style>
+		*,
+		*::before,
+		*::after {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: sans-serif;
+		}
+
+		body {
+			background: #232526;
+			min-height: 100vh;
+			color: white;
+		}
+	</style>
 	<body>
 		<div id="svelte">%svelte.body%</div>
 	</body>
